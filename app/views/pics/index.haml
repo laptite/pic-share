@@ -1,7 +1,10 @@
 %h1 Pics Index
 
+%strong Share your life!
+%button=link_to "Add new pic", new_pic_path
+
 - @pics.each do |pic|
-	%p= link_to pic.title, pic
+	%h3= link_to pic.title, pic
 	= link_to "Edit", edit_pic_path(pic)
 	|
 	= link_to "Delete", pic_path(pic), method: :delete, data: { confirm: 'Are you sure you want to delete this Post?'}
