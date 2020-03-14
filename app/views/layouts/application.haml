@@ -12,4 +12,7 @@
       - klass = name == 'notice' ? 'alert-success' : 'alert-info'
       = content_tag :div, msg, class: "alert #{klass}"
     
+    - if user_signed_in?
+      = link_to "Logout", destroy_user_session_path, method: :delete
+
     = yield
