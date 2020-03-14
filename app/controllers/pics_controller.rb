@@ -2,7 +2,7 @@ class PicsController < ApplicationController
 	before_action :find_pic, only: [:show, :edit, :update, :destroy]
 
 	def index	
-		@posts = Pic.order(created_at: :desc)
+		@pics = Pic.order(created_at: :desc)
 	end
 
 	def new
@@ -13,7 +13,7 @@ class PicsController < ApplicationController
 		@pic = Pic.new(pic_params)
 
 		if @pic.save
-			redirect_to @pic
+			redirect_to @pic, notice: 'Post successfully created!'
 		else
 			render :new
 		end
@@ -28,7 +28,7 @@ class PicsController < ApplicationController
 
 	def update
 		if @pic.update(pic_params)
-			redirect_to @pic
+			redirect_to @pic, notice: 'Post successfully updated!'
 		else
 			render :edit
 		end
@@ -36,7 +36,7 @@ class PicsController < ApplicationController
 
 	def destroy
 		@pic.destroy
-		redirect_to pics_path
+		redirect_to pics_path, notice: 'Post successfully deleted!'
 	end
 
 	private
