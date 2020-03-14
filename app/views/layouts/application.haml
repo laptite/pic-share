@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title PicShare
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  
+  %body
+    - flash.each do |name, msg|
+      - klass = name == 'notice' ? 'alert-success' : 'alert-info'
+      = content_tag :div, msg, class: "alert #{klass}"
+    
+    = yield
