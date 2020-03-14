@@ -5,6 +5,9 @@
 
 - @pics.each do |pic|
 	%h3= link_to pic.title, pic
+	%h4= pic.user.handle
+	%p= "#{time_ago_in_words(pic.created_at)} ago"
+
 	= link_to "Edit", edit_pic_path(pic)
 	|
 	= link_to "Delete", pic_path(pic), method: :delete, data: { confirm: 'Are you sure you want to delete this Post?'}
