@@ -25,6 +25,7 @@ class PicsController < ApplicationController
 	end
 	
 	def edit
+		redirect_to @pic unless @pic.user == current_user
 	end
 
 	def update
