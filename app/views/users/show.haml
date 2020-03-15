@@ -1,0 +1,32 @@
+#edit_page.col-md-8.col-md-offset-2
+	.row
+		.panel.panel-default
+			.panel-heading
+				%h1 Profile
+
+			.panel-body
+				.container
+					.row
+						.form-group
+							%strong.col-sm-2 Avatar
+							.col-md-6
+								- if @user.avatar.present?
+									= image_tag @user.avatar.url(:thumb)
+								- else
+									.grayed-out None
+						- if @user.bio.present?
+							.form-group
+								%strong.col-sm-2 Bio
+								.col-md-6= @user.bio
+						.form-group
+							%strong.col-sm-2 Email
+							.col-md-6= @user.email
+						.form-group
+							%strong.col-sm-2 Handle
+							.col-md-6= "@#{@user.handle}"
+						.form-group
+							%strong.col-sm-2 Posts
+							.col-md-6= @user.pics.count
+					- if user_signed_in?
+						%hr
+						= link_to "Edit", edit_profile_path(@user), class: 'btn btn-info'
