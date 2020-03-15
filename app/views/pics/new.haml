@@ -1,5 +1,8 @@
-%h1 New Pic
+.col-md-8.col-md-offset-2
+	.row
+		.panel.panel-default
+			.panel-heading
+				%h1 New Post
 
-= render partial: 'form'
-
-= link_to :back, root_path
+			.panel-body
+				= render partial: 'form'
