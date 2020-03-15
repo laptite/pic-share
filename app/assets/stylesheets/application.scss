@@ -60,12 +60,39 @@ nav {
 	}
 }
 
+input[type='file'] {
+  font-size: 0.75em;
+  line-height: 1em;
+}
+
+.form-group label {
+
+}
+
 #edit_page {
+	@media (min-width: 768px) {
+		.container {
+		   width: initial; 
+		}
+	}
 	.current_image {
 		img {
 			display: block;
 			margin: 20px 0;
 		}
+	}
+	.row {
+		line-height: 2.5em;
+	}
+	.title, .input {
+		display: inline-block;
+	}
+	.title {
+		font-weight: 600;
+		min-width: 35px;
+	}
+	.grayed-out {
+		color: #b8b8b8;
 	}
 }
 

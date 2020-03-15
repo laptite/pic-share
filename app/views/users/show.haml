@@ -1,0 +1,25 @@
+#edit_page.col-md-8.col-md-offset-2
+	.row
+		.panel.panel-default
+			.panel-heading
+				%h1 Profile
+
+			.panel-body
+				.container
+					.row
+						%strong.col-sm-2 Email
+						.col-md-6= @user.email
+					.row
+						%strong.col-sm-2 Handle
+						.col-md-6= @user.handle
+					.row
+						%strong.col-sm-2 Avatar
+						.col-md-6
+							- if @user.avatar.present?
+								= image_tag @user.avatar.url(:thumb)
+							- else
+								.grayed-out None
+				
+			.panel-body
+				.container
+					= link_to "Edit", edit_profile_path(@user), class: 'btn btn-info'
