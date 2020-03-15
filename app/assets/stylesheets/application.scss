@@ -35,6 +35,15 @@ nav {
 .ml-5 {
 	margin-left: 5px;
 }
+
+.mt-10 {
+	margin-top: 10px;
+}
+
+.mtb-10 {
+	margin: 10px 0 10px;
+}
+
 #pics {
   margin: 0 auto;
   width: 100%;
@@ -65,7 +74,6 @@ nav {
 input[type='file'] {
   font-size: 0.75em;
   line-height: 1em;
-  color: white;
 }
 
 .profile-info {
@@ -74,6 +82,7 @@ input[type='file'] {
 	input[type='file'] {
 	  font-size: 1em;
 	  line-height: 1.5em;
+	  color: white;
 
 	  &:focus {
 	  	outline: none;
@@ -100,8 +109,12 @@ input[type='file'] {
 	margin-right: 10px;
 }
 
+.handle {
+	font-weight: 600;
+	line-height: 1em;
+}
+
 .form-group {
-	margin-bottom: 0;
 
 	.hint {
 		text-transform: capitalize;
@@ -109,21 +122,19 @@ input[type='file'] {
     color: gray;
 	}
 	input, .input {
-		min-width: 300px;
+		width: 300px;
 	}
 }
 
-.handle {
-	font-weight: 600;
-	line-height: 1em;
-}
-
-
-#edit_page {
-	@media (min-width: 768px) {
-		.container {
-		   width: initial; 
-		}
+#edit_page, #show_page {
+	.caption {
+		font-size: 0.85em;
+	}
+	.image-block {
+		display: block;
+	}
+	.form-group {
+		margin-bottom: 0;
 	}
 	.profile-menu {
 		ul {
@@ -146,8 +157,16 @@ input[type='file'] {
 		font-weight: 600;
 		min-width: 35px;
 	}
+	.description {
+		line-height: 1.5em;
+	}
 	.grayed-out {
 		color: #b8b8b8;
+	}
+	@media (min-width: 768px) {
+		.container {
+		   width: initial; 
+		}
 	}
 }
 
