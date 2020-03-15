@@ -32,7 +32,9 @@ nav {
 		}
 	}
 }
-
+.ml-5 {
+	margin-left: 5px;
+}
 #pics {
   margin: 0 auto;
   width: 100%;
@@ -63,16 +65,69 @@ nav {
 input[type='file'] {
   font-size: 0.75em;
   line-height: 1em;
+  color: white;
 }
 
-.form-group label {
+.profile-info {
+	display: inline-block;
 
+	input[type='file'] {
+	  font-size: 1em;
+	  line-height: 1.5em;
+
+	  &:focus {
+	  	outline: none;
+	  }
+	}
+	#user_avatar::before {
+		content: 'Change Profile Photo';
+	  position: absolute;
+	  background: white;
+	  color: #337ab7;
+	  font-weight: 600;
+	  line-height: 2em;
+	  cursor: pointer;
+	}
 }
+
+.avatar, .handle-group {
+	display: inline-block;
+	float: left;
+}
+
+.avatar {
+	border: 1px solid #d3d3d3;
+	margin-right: 10px;
+}
+
+.form-group {
+	margin-bottom: 0;
+
+	.hint {
+		text-transform: capitalize;
+		font-size: 0.75em;
+    color: gray;
+	}
+	input, .input {
+		min-width: 300px;
+	}
+}
+
+.handle {
+	font-weight: 600;
+	line-height: 1em;
+}
+
 
 #edit_page {
 	@media (min-width: 768px) {
 		.container {
 		   width: initial; 
+		}
+	}
+	.profile-menu {
+		ul {
+			list-style: none;
 		}
 	}
 	.current_image {
