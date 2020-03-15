@@ -2,7 +2,11 @@
 	.row
 		.panel.panel-default
 			.panel-heading
-				%h1 New Post
+				%h1 Edit Post
 
 			.panel-body
+				%strong.center Image
+				.current_image
+					= image_tag @pic.image.url(:medium)
+				
 				= render partial: 'form'
