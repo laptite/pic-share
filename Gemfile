@@ -33,6 +33,7 @@ gem 'simple_form', '~> 5.0', '>= 5.0.2'
 gem 'paperclip', '~> 6.1'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'jquery-rails'
+gem 'masonry-rails', '~> 0.2.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
