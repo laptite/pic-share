@@ -8,6 +8,7 @@
 
 $light-gray: #b8b8b8;
 $btn-blue: #337ab7;
+$almost-black: #262626;
 
 body {
 	background: #E9E9E9;
@@ -41,32 +42,32 @@ nav {
 	margin-left: 5px;
 }
 
-// .mt-10 {
-// 	margin-top: 10px;
-// }
-
 .mtb-10 {
 	margin: 10px 0 10px;
 }
+
 #pics {
   margin: 0 auto;
   width: 100%;
 }
+
 .pic {
 	width: 350px;
-  box-shadow: 0 1px 2px 0 rgba(82,158,204, 0.48);
+  box-shadow: 0 1px 2px 0 rgba(184,184,184, 0.5);
   border-radius: 2px;
   text-align: center;
   margin: 0 auto 10px;
+  
   img {
   	max-width: 100%;
   	height: auto;
   }
-  h2 {
-  	font-size: 10px;
-  	margin: 0;
-  	font-weight: bold;
-  	padding: 25px 10px;
+  .panel-body {
+  	padding: 0;
+  }
+  .panel-footer {
+  	background-color: initial; 
+    border-top: none;
 
   	a {
 			color: #529ECC;
@@ -84,40 +85,53 @@ nav {
 	  position: relative;
 	  width: 32px;
 	  height: 32px;
-	  margin: 8px 14px;
-
-	  &::after {
-	  	border: 1px solid rgba(var(--jb7,0,0,0),.0975);
-	    border-radius: 50%;
-	    bottom: 0;
-	    content: '';
-	    left: 0;
-	    pointer-events: none;
-	    position: absolute;
-	    right: 0;
-	    top: 0;
-	  }
+		margin: 8px 14px;
+		&::after {
+		  border: 1px solid rgba(var(--jb7,0,0,0),.0975);
+		  border-radius: 50%;
+		  bottom: 0;
+		  content: '';
+		  left: 0;
+		  pointer-events: none;
+		  position: absolute;
+		  right: 0;
+		  top: 0;
+		}
 	}
   .handle-wrapper {
   	flex: 0 0 auto;
   	position: relative;
   	overflow: hidden;
-  	margin: 7px 0;
   	text-align: left;
 
   	a, a:hover {
-  		color: black;
+  		color: $almost-black;
   		text-decoration: none;
   	}
-  	.edit-btn {
+  	.fa-ellipsis-h {
   		position: absolute;
     	top: 0;
     	right: 0;
-    	margin: 8px;
+    	margin: 8px 14px;
     	line-height: 20px;
     	font-size: 12px;
-    	color: $btn-blue;
+    	color: $almost-black;
+    	&.grayed-out {
+    		color: $light-gray;
+    		pointer-events: none;
+    	}
   	}
+  }
+  .actions-wrapper {
+		display: flex;
+  }
+  .fa-heart-wrapper {
+    line-height: 1em;
+  }
+  .fa-heart {
+    line-height: 20px;
+  	font-size: 1.75em;
+  	color: $almost-black;
   }
 	.time-ago {
 		text-transform: uppercase;
@@ -125,8 +139,7 @@ nav {
 		font-size: 0.75em;
 		line-height: 1.75em;
 		color: $light-gray;
-		width: 90%;
-		margin: 0 auto;
+		margin-top: 8px;
 	}
 }
 
@@ -185,7 +198,7 @@ input[type='file'] {
 	}
 }
 
-#edit_page, #show_page {
+#edit_page {
 	.caption {
 		font-size: 0.85em;
 	}
