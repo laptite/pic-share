@@ -6,6 +6,7 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://kit.fontawesome.com/2157c7ac5d.js', crossorigin: 'anonymous'
   
   %body
     %nav.navbar.navbar-inverse
@@ -16,7 +17,7 @@
           - if user_signed_in?
             %li= link_to "Add New Post", new_pic_path
             %li= link_to "Settings", edit_user_registration_path
-            %li= link_to "My profile", edit_profile_path(current_user)
+            %li= link_to "#{current_user.handle}", edit_profile_path(current_user)
             %li= link_to "Logout", destroy_user_session_path, method: :delete
           - else
             %li= link_to "Join Now", new_user_registration_path
