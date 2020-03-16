@@ -13,6 +13,8 @@
 	
 	.panel-footer
 		.actions-wrapper
-			= link_to like_pic_path(pic), method: :put, class: 'fa-heart-wrapper' do
-				%i.far.fa-heart
+			%i.far.fa-heart
+			-#
+				= link_to like_pic_path(pic), method: :put, class: 'fa-heart-wrapper' do
+					%i.far.fa-heart
 		.time-ago= "#{time_ago_in_words(pic.created_at)} ago"
