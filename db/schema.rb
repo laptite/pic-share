@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_16_160947) do
+ActiveRecord::Schema.define(version: 2020_03_17_180342) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "pic_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pic_id"], name: "index_comments_on_pic_id"
+  end
 
   create_table "likes", force: :cascade do |t|
     t.string "likeable_type"
@@ -53,4 +61,5 @@ ActiveRecord::Schema.define(version: 2020_03_16_160947) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "pics"
 end

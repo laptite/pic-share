@@ -16,4 +16,7 @@
 			- liked_klass = pic.likes.liked.present? ? 'fas' : 'far'
 			= link_to toggle_like_pic_path(pic), method: :put, class: 'fa-heart-wrapper' do
 				%i.fa-heart{ class: liked_klass }
-		.time-ago= "#{time_ago_in_words(pic.created_at)} ago"
+		#comments
+			= render pic.comments
+			.time-ago= "#{time_ago_in_words(pic.created_at)} ago"
+			= render partial: 'comments/form', locals: { pic: pic }
