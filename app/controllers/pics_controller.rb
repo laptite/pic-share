@@ -1,6 +1,6 @@
 class PicsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :find_pic, only: [:show, :edit, :update, :destroy]
+	before_action :find_pic, only: [:show, :edit, :update, :destroy, :toggle_like]
 
 	def index	
 		@pics = Pic.order(created_at: :desc)
@@ -20,7 +20,6 @@ class PicsController < ApplicationController
 		end
 	end
 
-
 	def show
 	end
 	
@@ -34,6 +33,16 @@ class PicsController < ApplicationController
 		else
 			render :edit
 		end
+	end
+
+	def toggle_like
+		if @pic.likes.empty?
+			@pic.likes.create(user: current_user, flag: true)
+		else
+			toggle = !current_user.liked_pic(@pic).flag?
+			current_user.liked_pic(@pic).update_attributes(flag: toggle)
+		end
+		redirect_back fallback_location: root_path
 	end
 
 	def destroy
@@ -50,6 +59,5 @@ class PicsController < ApplicationController
 		def pic_params
 			params.require(:pic).permit(:title, :description, :image)
 		end
-
 
 end

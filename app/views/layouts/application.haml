@@ -5,25 +5,38 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Dancing+Script&display=swap'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'https://kit.fontawesome.com/2157c7ac5d.js', crossorigin: 'anonymous'
   
   %body
-    %nav.navbar.navbar-inverse
-      .container
+    %nav.navbar
+      .container.nav
         .navbar-brand= link_to "PicShare", root_path
 
-        %ul.nav.navbar-nav.navbar-left
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            = link_to root_path do
+              %i.fas.fa-home
           - if user_signed_in?
-            %li= link_to "Add New Post", new_pic_path
-            %li= link_to "Settings", edit_user_registration_path
-            %li= link_to "#{current_user.handle}", edit_profile_path(current_user)
-            %li= link_to "Logout", destroy_user_session_path, method: :delete
+            %li
+              = link_to new_pic_path do
+                %i.fas.fa-plus
+            %li
+              = link_to edit_user_registration_path do
+                %i.fas.fa-cog
+            %li
+              = link_to destroy_user_session_path, method: :delete do
+                %i.fas.fa-sign-out-alt
+            %li
+              = link_to edit_profile_path(current_user) do
+                %span.avatar-round
+                  = image_tag current_user.avatar.url(:tiny)
           - else
             %li= link_to "Join Now", new_user_registration_path
             %li= link_to "Log In", new_user_session_path
 
-    .container
+    .main.container
       - flash.each do |name, msg|
         - klass = name == 'notice' ? 'alert-success' : 'alert-info'
         = content_tag :div, msg, class: "alert #{klass}"
