@@ -131,7 +131,12 @@ nav {
   .fa-heart {
     line-height: 20px;
   	font-size: 1.75em;
-  	color: $almost-black;
+  	&.fas {
+  		color: red;
+  	}
+  	&.far {
+  		color: $light-gray;
+  	}
   }
 	.time-ago {
 		text-transform: uppercase;
