@@ -9,4 +9,4 @@
 				.current_image
 					= image_tag @pic.image.url(:medium)
 				
-				= render partial: 'form'
+				= render partial: 'form', locals: { pic: @pic }
