@@ -1,32 +1,32 @@
 #edit_page.col-md-8.col-md-offset-2
 	.row
 		.panel.panel-default
-			.panel-heading
-				%h1 Profile
-
 			.panel-body
 				.container
-					.row
-						.form-group
-							%strong.col-sm-2 Avatar
-							.col-md-6
+					.row						
+						.col-sm-12
+							.profile-info
 								- if @user.avatar.present?
-									= image_tag @user.avatar.url(:thumb)
+									= image_tag @user.avatar.url(:tiny), class: 'avatar-round'
 								- else
 									.grayed-out None
-						- if @user.bio.present?
-							.form-group
-								%strong.col-sm-2 Bio
-								.col-md-6= @user.bio
-						.form-group
-							%strong.col-sm-2 Email
-							.col-md-6= @user.email
-						.form-group
-							%strong.col-sm-2 Handle
-							.col-md-6= "@#{@user.handle}"
-						.form-group
-							%strong.col-sm-2 Posts
-							.col-md-6= @user.pics.count
-					- if user_signed_in?
-						%hr
-						= link_to "Edit", edit_profile_path(@user), class: 'btn btn-info'
+								.handle-group
+									.handle= @user.handle
+							.activity-info
+								%strong= @user.pics.count
+								posts
+							%hr
+							.user-info
+								%strong.col-sm-2 Username
+								.col-sm-10= @user.handle
+							.user-info
+								%strong.col-sm-2 Email
+								.col-sm-10= @user.email
+							- if @user.bio.present?
+								.user-info
+									%strong.col-sm-2 Bio
+									.col-sm-10= @user.bio
+						.col-sm-12
+							- if user_signed_in?
+								%hr
+								= link_to "Edit", edit_profile_path(@user), class: 'btn btn-info'

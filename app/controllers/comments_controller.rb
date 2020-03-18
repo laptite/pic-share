@@ -3,12 +3,14 @@ class CommentsController < ApplicationController
 
 	def create
 		@comment = @pic.comments.create(params[:comment].permit(:body))
+		# FIX -- Make ajax update on index instead of redirect to show
 		redirect_to pic_path(@pic)
 	end
 
 	def destroy
 		@comment = @pic.comment.find(params[:id])
 		@comment.destroy
+		# FIX -- Make ajax update on index instead of redirect to show
 		redirect_to pic_path(@pic)
 	end
 

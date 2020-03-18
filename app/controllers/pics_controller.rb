@@ -42,6 +42,7 @@ class PicsController < ApplicationController
 			toggle = !current_user.liked_pic(@pic).flag?
 			current_user.liked_pic(@pic).update_attributes(flag: toggle)
 		end
+		# FIX -- Make ajax update on index instead of redirect
 		redirect_back fallback_location: root_path
 	end
 
@@ -57,7 +58,7 @@ class PicsController < ApplicationController
 		end
 
 		def pic_params
-			params.require(:pic).permit(:title, :description, :image)
+			params.require(:pic).permit(:title, :image)
 		end
 
 end
