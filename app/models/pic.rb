@@ -1,6 +1,5 @@
 class Pic < ApplicationRecord
 	belongs_to :user
-	validates :title, :description, presence: true
 	has_many :likes, as: :likeable
   has_many :comments, dependent: :destroy
 
