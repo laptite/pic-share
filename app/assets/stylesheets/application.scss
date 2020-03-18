@@ -36,6 +36,10 @@ ul {
 }
 .navbar {
 	background: $white;
+
+	@media (min-width: 768px) {
+		border-radius: initial;
+	}
 }
 .navbar-nav a {
 	color: $almost-black;
