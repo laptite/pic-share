@@ -5,16 +5,20 @@
 		.handle-wrapper
 			.handle= link_to pic.user.handle, profile_path(pic.user)
 			.title= link_to pic.title, pic
-			= link_to edit_pic_path(pic) do
-				- gray_klass = pic.user != current_user ? 'grayed-out' : ''
+
+			- gray_klass = pic.user != current_user ? 'grayed-out' : ''
+			= link_to toggle_modal_pic_path(pic), remote: true, method: :put, data: { toggle: "modal-#{pic.id}", target: '#modal-window' } do
 				%i.fas.fa-ellipsis-h{ class: gray_klass }
-			=# link_to "Delete", pic_path(pic), method: :delete, data: { confirm: 'Are you sure you want to delete this Post?'}
+			#modal-window{ class: 'hide', aria: { hidden: true } }
+				= render partial: 'edit_post', locals: { pic: pic }
+
 	.panel-body
-		= image_tag pic.resize_image(500).processed
+		= image_tag pic.resize_image(500)
+
 	.panel-footer
 		.actions-wrapper
 			- liked_klass = pic.likes.liked.present? ? 'fas' : 'far'
-			= link_to toggle_like_pic_path(pic), method: :put, class: 'fa-heart-wrapper' do
+			= link_to toggle_like_pic_path(pic), remote: true, method: :put, class: 'fa-heart-wrapper' do
 				%i.fa-heart{ class: liked_klass }
 		#comments
 			= render pic.comments

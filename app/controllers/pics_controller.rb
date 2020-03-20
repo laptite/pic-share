@@ -1,6 +1,7 @@
 class PicsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :find_pic, only: [:show, :edit, :update, :destroy, :toggle_like]
+	before_action :find_pic, 
+		only: [:show, :edit, :update, :destroy, :toggle_like, :toggle_modal]
 
 	def index	
 		@pics = Pic.order(created_at: :desc)
@@ -35,6 +36,14 @@ class PicsController < ApplicationController
 		end
 	end
 
+	def toggle_modal
+		respond_to { |format| format.js { render layout: false} }
+	end
+
+	def edit_attachment
+		respond_to { |format| format.js { render layout: false} }
+	end
+
 	def toggle_like
 		if @pic.likes.empty?
 			@pic.likes.create(user: current_user, flag: true)
@@ -42,8 +51,7 @@ class PicsController < ApplicationController
 			toggle = !current_user.liked_pic(@pic).flag?
 			current_user.liked_pic(@pic).update_attributes(flag: toggle)
 		end
-		# FIX -- Make ajax update on index instead of redirect
-		redirect_back fallback_location: root_path
+		respond_to { |format| format.js { render layout: false } }
 	end
 
 	def destroy
