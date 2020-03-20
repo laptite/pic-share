@@ -1,6 +1,7 @@
 class PicsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :find_pic, only: [:show, :edit, :update, :destroy, :toggle_like]
+	before_action :find_pic, 
+		only: [:show, :edit, :update, :destroy, :toggle_like, :edit_modal]
 
 	def index	
 		@pics = Pic.order(created_at: :desc)

@@ -1,11 +1,9 @@
 var el = document.getElementById('box-<%= @pic.id %>').querySelector('.fa-heart');
 
 <% if @pic.likes.liked.present? %>
-	console.log('pic is liked', el.classList.value)
 	el.classList.remove('far');
   el.classList.add('fas');
 <% else %>
-	console.log('pic is unliked', el.classList.value)
 	el.classList.remove('fas');
   el.classList.add('far');
 <% end %>
