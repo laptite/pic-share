@@ -12,9 +12,6 @@ module.exports = {
   },
   resolve: {
     alias: {
-      $: 'jquery/src/jquery',
-    	jQuery: 'jquery/src/jquery',
-    	Masonry: 'masonry-layout',
     	modernizr$: path.resolve(__dirname, './.modernizrrc')
     }
   }
