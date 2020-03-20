@@ -7,6 +7,8 @@ const $ = require('jquery');
 const Masonry = require('masonry-layout');
 const Modernizr = require('modernizr');
 
+// FIX ME -- required files aren't loading
+
 window.onload = function(){
 	const pics = document.getElementById('#pics');
 
