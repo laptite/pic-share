@@ -42,8 +42,7 @@ class PicsController < ApplicationController
 			toggle = !current_user.liked_pic(@pic).flag?
 			current_user.liked_pic(@pic).update_attributes(flag: toggle)
 		end
-		# FIX -- Make ajax update on index instead of redirect
-		redirect_back fallback_location: root_path
+		respond_to { |format| format.js { render layout: false } }
 	end
 
 	def destroy

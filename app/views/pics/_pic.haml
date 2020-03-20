@@ -14,7 +14,7 @@
 	.panel-footer
 		.actions-wrapper
 			- liked_klass = pic.likes.liked.present? ? 'fas' : 'far'
-			= link_to toggle_like_pic_path(pic), method: :put, class: 'fa-heart-wrapper' do
+			= link_to toggle_like_pic_path(pic), remote: true, method: :put, class: 'fa-heart-wrapper' do
 				%i.fa-heart{ class: liked_klass }
 		#comments
 			= render pic.comments
