@@ -1,12 +1,13 @@
-#edit_page.col-md-8.col-md-offset-2
-	.row
-		.panel.panel-default
-			.panel-heading
-				%h1 Edit Post
-
-			.panel-body
-				%strong.center Image
-				.current_image
-					= image_tag @pic.image.url(:medium)
-				
-				= render partial: 'form'
+.col-md-6.col-md-offset-3
+	.pic.box.panel
+		.panel-heading
+			%span.avatar-round= link_to (image_tag @pic.user.resize_avatar(50)), profile_path(@pic.user)
+			.handle-wrapper
+				.handle= link_to @pic.user.handle, profile_path(@pic.user)
+				.title= link_to @pic.title, @pic
+		.panel-body
+			= image_tag @pic.resize_image(350)
+		
+		.panel-footer
+			#comments
+				= render partial: 'form', locals: { pic: @pic }

@@ -11,13 +11,11 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'haml', '~> 5.1', '>= 5.1.2'
-gem 'devise', '~> 4.7', '>= 4.7.1'
-gem 'simple_form', '~> 5.0', '>= 5.0.2'
-gem 'paperclip', '~> 6.1'
-gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
-gem 'jquery-rails'
-gem 'masonry-rails', '~> 0.2.4'
+gem 'haml', '~> 5.1'
+gem 'devise', '~> 4.7'
+gem 'simple_form', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.4'
+gem 'image_processing', '~> 1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

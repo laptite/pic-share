@@ -1,20 +1,22 @@
-.pic.box.panel
+.pic.box.panel{ id: "box-#{pic.id}" }
 	.panel-heading
-		%span.avatar-round= link_to (image_tag pic.user.avatar.url(:tiny)), profile_path(pic.user)
+		%span.avatar-round			
+			= link_to (image_tag pic.user.resize_avatar(50)), profile_path(pic.user)
 		.handle-wrapper
 			.handle= link_to pic.user.handle, profile_path(pic.user)
 			.title= link_to pic.title, pic
 			= link_to edit_pic_path(pic) do
-				- klass = pic.user != current_user ? 'grayed-out' : ''
-				%i.fas.fa-ellipsis-h{ class: klass }
+				- gray_klass = pic.user != current_user ? 'grayed-out' : ''
+				%i.fas.fa-ellipsis-h{ class: gray_klass }
 			=# link_to "Delete", pic_path(pic), method: :delete, data: { confirm: 'Are you sure you want to delete this Post?'}
 	.panel-body
-		= image_tag pic.image.url(:medium)
-	
+		= image_tag pic.resize_image(500).processed
 	.panel-footer
 		.actions-wrapper
-			%i.far.fa-heart
-			-#
-				= link_to like_pic_path(pic), method: :put, class: 'fa-heart-wrapper' do
-					%i.far.fa-heart
-		.time-ago= "#{time_ago_in_words(pic.created_at)} ago"
+			- liked_klass = pic.likes.liked.present? ? 'fas' : 'far'
+			= link_to toggle_like_pic_path(pic), method: :put, class: 'fa-heart-wrapper' do
+				%i.fa-heart{ class: liked_klass }
+		#comments
+			= render pic.comments
+			.time-ago= "#{time_ago_in_words(pic.created_at)} ago"
+			= render partial: 'comments/form', locals: { pic: pic, id: pic.id }
