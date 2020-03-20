@@ -26,6 +26,17 @@ h1, h2, h3, h4, h5, h6 {
 ul {
 	list-style: none;
 }
+.pic-wrapper {
+	position: relative;
+	
+	.fa-pen-square {
+	  position: absolute;
+	  top: 0;
+	  right: 2px;
+		font-size: 2em;
+	  color: white;
+	}
+}
 .pic-modal {
 	position: absolute;
 	top: 60px;
@@ -301,31 +312,30 @@ input[type='file'] {
 	  	outline: none;
 	  }
 	}
-	#pic_image {
-		&.no-image::before {
-	  	content: 'Add New Picture'
-	  }
-  	&::before {
-			content: 'Update Post Picture';
+	#pic_image,
+	#user_avatar {
+		display: none;
+		&.new-record {
+			display: block;
 		}
 	}
 	#user_avatar {
 		&.no-image::before {
-	  	content: 'Add Avatar'
+	  	// content: 'Add Avatar'
 	  }
   	&::before {
-			content: 'Change Avatar';
+			// content: 'Change Avatar';
 		}
 	}
 	#user_avatar,
 	#pic_image {
 		&::before {
-		  position: absolute;
-		  background: white;
-		  color: $btn-blue;
-		  font-weight: 600;
-		  line-height: 2em;
-		  cursor: pointer;
+		  // position: absolute;
+		  // background: white;
+		  // color: $btn-blue;
+		  // font-weight: 600;
+		  // line-height: 2em;
+		  // cursor: pointer;
 		}
 	}
 	.avatar-round {

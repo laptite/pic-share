@@ -39,6 +39,10 @@ class PicsController < ApplicationController
 		respond_to { |format| format.js { render layout: false} }
 	end
 
+	def edit_attachment
+		respond_to { |format| format.js { render layout: false} }
+	end
+
 	def toggle_like
 		if @pic.likes.empty?
 			@pic.likes.create(user: current_user, flag: true)
