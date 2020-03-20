@@ -14,6 +14,7 @@
 
 	.panel-body
 		= image_tag pic.resize_image(500)
+
 	.panel-footer
 		.actions-wrapper
 			- liked_klass = pic.likes.liked.present? ? 'fas' : 'far'

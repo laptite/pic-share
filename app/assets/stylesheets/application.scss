@@ -7,6 +7,7 @@
 
 $almost-black: #262626;
 $background: #fafafa;
+$black: #000;
 $btn-blue: #337ab7;
 $gray: #d3d3d3;
 $light-gray: #b8b8b8;
@@ -29,12 +30,15 @@ ul {
 .pic-wrapper {
 	position: relative;
 	
-	.fa-pen-square {
+	.fa-pen {
 	  position: absolute;
-	  top: 0;
-	  right: 2px;
-		font-size: 2em;
-	  color: white;
+    top: 0px;
+    right: 0px;
+    font-size: 1em;
+    color: $black;
+    background: $white;
+    border: $black solid 2px;
+    padding: 4px;
 	}
 }
 .pic-modal {
@@ -312,8 +316,7 @@ input[type='file'] {
 	  	outline: none;
 	  }
 	}
-	#pic_image,
-	#user_avatar {
+	#pic_image {
 		display: none;
 		&.new-record {
 			display: block;
@@ -321,21 +324,16 @@ input[type='file'] {
 	}
 	#user_avatar {
 		&.no-image::before {
-	  	// content: 'Add Avatar'
-	  }
-  	&::before {
-			// content: 'Change Avatar';
+			content: 'Add Avatar'
 		}
-	}
-	#user_avatar,
-	#pic_image {
 		&::before {
-		  // position: absolute;
-		  // background: white;
-		  // color: $btn-blue;
-		  // font-weight: 600;
-		  // line-height: 2em;
-		  // cursor: pointer;
+			content: 'Change Avatar';
+			position: absolute;
+			background: white;
+			color: $btn-blue;
+			font-weight: 600;
+			line-height: 2em;
+			cursor: pointer;
 		}
 	}
 	.avatar-round {
