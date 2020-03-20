@@ -15,7 +15,6 @@ class User < ApplicationRecord
   end
 
   def liked_pic?(pic)
-byebug
     return false unless self.likes.present?
     self.likes.all? {|like| pic.likes.include?(like)}
   end

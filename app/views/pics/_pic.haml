@@ -1,4 +1,4 @@
-.pic.box.panel{ id: pic.id }
+.pic.box.panel{ id: "box-#{pic.id}" }
 	.panel-heading
 		%span.avatar-round= link_to (image_tag pic.user.avatar.url(:tiny)), profile_path(pic.user)
 		.handle-wrapper
@@ -19,4 +19,4 @@
 		#comments
 			= render pic.comments
 			.time-ago= "#{time_ago_in_words(pic.created_at)} ago"
-			= render partial: 'comments/form', locals: { pic: pic }
+			= render partial: 'comments/form', locals: { pic: pic, id: pic.id }
