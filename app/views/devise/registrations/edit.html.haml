@@ -5,8 +5,8 @@
         .container
           .row
             %sidebar.profile-menu.col-sm-4
-              - if resource.avatar.present?
-                .avatar-round= image_tag resource.avatar.url(:thumb)
+              - if resource.avatar.attached?
+                .avatar-round= image_tag resource.resize_avatar(150)
               = link_to "Edit Profile", edit_profile_path(resource), class: 'edit-link'
                   
             .col-sm-8
