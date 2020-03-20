@@ -6,8 +6,8 @@
 					.row						
 						.col-sm-12
 							.profile-info
-								- if @user.avatar.present?
-									= image_tag @user.avatar.url(:tiny), class: 'avatar-round'
+								- if @user.avatar.attached?
+									= image_tag @user.resize_avatar(100), class: 'avatar-round'
 								- else
 									.grayed-out None
 								.handle-group

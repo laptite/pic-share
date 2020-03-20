@@ -1,7 +1,9 @@
 .col-md-6.col-md-offset-3
 	.pic.box.panel
 		.panel-heading
-			%span.avatar-round= link_to (image_tag current_user.avatar.url(:tiny)), profile_path(current_user)
+			- if current_user.avatar.attached?
+				%span.avatar-round
+					= link_to (image_tag current_user.resize_avatar(50)), profile_path(current_user)
 			.handle-wrapper
 				.handle= link_to current_user.handle, profile_path(current_user)
 		

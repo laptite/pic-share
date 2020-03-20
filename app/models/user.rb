@@ -2,11 +2,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :pics, dependent: :destroy
   has_many :likes
-
-  has_attached_file :avatar, styles: { medium: "300x300#", thumb: "150x150#", tiny: "50x50#" }, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  has_many :pics, dependent: :destroy
+  has_one_attached :avatar
+  # { tiny: "50x50#" }
 
   before_create :generate_handle
 
@@ -21,5 +20,19 @@ class User < ApplicationRecord
 
   def liked_pic(pic)
     self.likes.detect {|like| like.likeable == pic }
+  end
+
+  def resize_avatar(pixel)
+    options = { 
+      coalesce: true,
+      thumbnail: "#{pixel}x#{pixel}^", 
+      gravity: 'center', 
+      extent: "#{pixel}x#{pixel}"
+    }
+    processed = self.avatar.variant(
+      loader: { page: nil }, 
+      combine_options: options
+    ).processed
+    return processed
   end
 end

@@ -10,6 +10,7 @@ $btn-blue: #337ab7;
 $almost-black: #262626;
 $white: #FFF;
 $background: #fafafa;
+$red: #ff0000;
 
 body {
 	background: $background;
@@ -69,7 +70,7 @@ nav {
 		width: 20px;
 		height: 20px;
 		&::after {
-			border: 2px solid $almost-black;
+			border: 2px solid $btn-blue;
 		}
 	}
 }
@@ -91,7 +92,8 @@ nav {
 .fa-cog,
 .fa-home, 
 .fa-plus,
-.fa-sign-out-alt {
+.fa-sign-out-alt,
+.fa-user {
 	font-size: 20px;
 	color: $almost-black;
 }
@@ -256,6 +258,13 @@ input[type='file'] {
 .profile-info {
 	display: inline-block;
 
+	.avatar-round {
+		height: 50px;
+		width: 50px;
+	}
+}
+.profile-info, .pic {
+
 	input[type='file'] {
 	  font-size: 1em;
 	  line-height: 1.5em;
@@ -265,18 +274,34 @@ input[type='file'] {
 	  	outline: none;
 	  }
 	}
-	#user_avatar::before {
-		content: 'Change Profile Photo';
-	  position: absolute;
-	  background: white;
-	  color: $btn-blue;
-	  font-weight: 600;
-	  line-height: 2em;
-	  cursor: pointer;
+	#pic_image {
+		&.no-image::before {
+	  	content: 'Add New Picture'
+	  }
+  	&::before {
+			content: 'Update Post Picture';
+		}
+	}
+	#user_avatar {
+		&.no-image::before {
+	  	content: 'Add Avatar'
+	  }
+  	&::before {
+			content: 'Change Avatar';
+		}
+	}
+	#user_avatar,
+	#pic_image {
+		&::before {
+		  position: absolute;
+		  background: white;
+		  color: $btn-blue;
+		  font-weight: 600;
+		  line-height: 2em;
+		  cursor: pointer;
+		}
 	}
 	.avatar-round {
-		width: 50px;
-		height: 50px;
 		margin-right: 15px;
 	}
 }
