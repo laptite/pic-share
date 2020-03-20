@@ -1,4 +1,5 @@
 .pic-modal
 	= link_to 'Edit', edit_pic_path(pic), class: 'edit-btn'
 	= link_to 'Delete', pic_path(pic), method: :delete, data: { confirm: 'Are you sure you want to delete this Post?'}, class: 'edit-btn'
-	= link_to 'Cancel', pic_path(pic), class: 'edit-btn', data: { dismiss: 'modal' }
+	-# FIXME -- Add new path since modal to data-dismiss refreshes page
+	= link_to 'Cancel', '#', class: 'edit-btn', data: { dismiss: "modal-#{pic.id}" }
