@@ -1,3 +1,4 @@
+-# FIXME -- Adding a comment redirects to edit_pic_path instead of just refreshing the pic post. Add Ajax call.
 - new_comment = [pic, pic.comments.build]
 = simple_form_for new_comment, html: { id: "new_comment-#{pic.id}" } do |f|
 	= f.input :body, input_html: { rows: 1, placeholder: 'Add a comment...', id: "pic_comment-#{id}" }
