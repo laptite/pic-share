@@ -6,7 +6,7 @@
 			.handle= link_to pic.user.handle, profile_path(pic.user)
 			.title= link_to pic.title, pic
 			
-			-# FIXME -- Modal needs to be targeted by box-id. Index page not working
+			-# FIXME -- Modal close action on index redirects to edit page
 			- gray_klass = pic.user != current_user ? 'grayed-out' : ''
 			= link_to edit_modal_pic_path(pic), remote: true, method: :put, data: { toggle: 'modal', target: '#modal-window' } do
 				%i.fas.fa-ellipsis-h{ class: gray_klass }
