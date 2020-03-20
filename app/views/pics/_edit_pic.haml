@@ -1,0 +1,4 @@
+.pic-modal
+	= link_to 'Edit', edit_pic_path(pic), class: 'edit-btn'
+	= link_to 'Delete', pic_path(pic), method: :delete, data: { confirm: 'Are you sure you want to delete this Post?'}, class: 'edit-btn'
+	= link_to 'Cancel', pic_path(pic), class: 'edit-btn', data: { dismiss: 'modal' }

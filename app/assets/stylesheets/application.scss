@@ -5,12 +5,13 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-$light-gray: #b8b8b8;
-$btn-blue: #337ab7;
 $almost-black: #262626;
-$white: #FFF;
 $background: #fafafa;
+$btn-blue: #337ab7;
+$gray: #d3d3d3;
+$light-gray: #b8b8b8;
 $red: #ff0000;
+$white: #FFF;
 
 body {
 	background: $background;
@@ -24,6 +25,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 ul {
 	list-style: none;
+}
+.pic-modal {
+	position: absolute;
+	top: 60px;
+	right: 0;
+	width: 100%;
+	background: $white;
+	border-radius: 10px;
+	.edit-btn {
+		display: block;
+		width: 100%;
+		text-align: center;
+		line-height: 3em;
+		border-bottom: solid 1px $gray;
+		&:hover {
+			background: #f6f6f6;
+		}
+	}
+	.edit-btn:first-of-type {
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+	.edit-btn:last-of-type {
+		border-bottom: initial;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
 }
 .new_user,
 .new_pic,
@@ -157,7 +185,6 @@ nav {
   .handle-wrapper {
   	flex: 0 0 auto;
   	position: relative;
-  	overflow: hidden;
   	text-align: left;
   	height: 32px;
 
