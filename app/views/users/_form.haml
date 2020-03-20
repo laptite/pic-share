@@ -1,0 +1,19 @@
+= simple_form_for user, url: edit_profile_path, html: { multipart: true } do |f|
+	.form-group.profile-info
+		- if user.avatar.attached?
+			= image_tag user.resize_avatar(100), class: 'avatar-round'
+		.handle-group
+			.handle= user.handle
+			= f.file_field :avatar, class: user.avatar.attached? ? '' : 'no-image'
+	.activity-info
+		%strong= user.pics.count
+		posts
+	.form-group
+		= f.input :email, required: false, input_html: { class: 'form-control' }
+	.form-group
+		= f.input :handle, required: false, input_html: { class: 'form-control' }
+	.form-group
+		= f.input :bio, required: false, input_html: { class: 'form-control', rows: 4 }
+	%hr
+	= f.button :submit, "Update", class: 'btn-info'
+	= link_to "Delete Account", profile_path(user), method: :delete, data: { confirm: 'Are you sure you want to delete your account?'}, class: 'btn btn-info ml-5'

@@ -28,8 +28,11 @@
                   %i.fas.fa-cog
             %li
               = link_to edit_profile_path(current_user) do
-                %span.avatar-round
-                  = image_tag current_user.avatar.url(:tiny)
+                - if current_user.avatar.attached?
+                  %span.avatar-round
+                    = image_tag current_user.resize_avatar(40)
+                - else
+                  %i.fas.fa-user
             %li
               = link_to destroy_user_session_path, method: :delete do
                 %i.fas.fa-sign-out-alt
