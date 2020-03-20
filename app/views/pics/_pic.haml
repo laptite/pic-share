@@ -7,7 +7,7 @@
 			.title= link_to pic.title, pic
 
 			- gray_klass = pic.user != current_user ? 'grayed-out' : ''
-			= link_to edit_modal_pic_path(pic), remote: true, method: :put, data: { toggle: "modal-#{pic.id}", target: '#modal-window' } do
+			= link_to toggle_modal_pic_path(pic), remote: true, method: :put, data: { toggle: "modal-#{pic.id}", target: '#modal-window' } do
 				%i.fas.fa-ellipsis-h{ class: gray_klass }
 			#modal-window{ class: 'hide', aria: { hidden: true } }
 				= render partial: 'edit_post', locals: { pic: pic }

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 		resources :comments
 		member do
 			put 'toggle_like',     to: 'pics#toggle_like'
-			put 'edit_modal',      to: 'pics#edit_modal'
+			put 'toggle_modal',      to: 'pics#toggle_modal'
 			put 'edit_attachment', to: 'pics#edit_attachment'
 		end
 	end

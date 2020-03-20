@@ -1,7 +1,7 @@
 class PicsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :find_pic, 
-		only: [:show, :edit, :update, :destroy, :toggle_like, :edit_modal]
+		only: [:show, :edit, :update, :destroy, :toggle_like, :toggle_modal]
 
 	def index	
 		@pics = Pic.order(created_at: :desc)
@@ -36,7 +36,7 @@ class PicsController < ApplicationController
 		end
 	end
 
-	def edit_modal
+	def toggle_modal
 		respond_to { |format| format.js { render layout: false} }
 	end
 

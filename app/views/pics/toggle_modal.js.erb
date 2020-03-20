@@ -1,8 +1,3 @@
-/*
-FIXME -- getElementById of pic-id first, then modal window
-var el = document.getElementById('box-<% @pic.id%>').querySelector('#modal-window')
-*/
-console.log('box-<%= @pic.id %>')
 var el = document.getElementById('box-<%= @pic.id %>').querySelector('#modal-window')
 
 if (el.classList.contains('hide')) {
