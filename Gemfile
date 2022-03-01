@@ -15,7 +15,7 @@ gem 'haml', '~> 5.1'
 gem 'devise', '~> 4.7'
 gem 'simple_form', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.4'
-gem 'image_processing', '~> 1.0'
+gem 'image_processing', '~> 1.12'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
